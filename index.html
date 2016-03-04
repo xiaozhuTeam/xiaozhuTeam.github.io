@@ -16,43 +16,62 @@
     </section>
 
     <section class="main-content">
-      <p>一、创建shell脚本</p>
+      <h1>
+<a id="一创建shell脚本" class="anchor" href="#%E4%B8%80%E5%88%9B%E5%BB%BAshell%E8%84%9A%E6%9C%AC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>一、创建shell脚本</h1>
 
-<p>到指定目录下
-cd /usr/local/bin/
-创建脚本
-vim myVimdiff.sh</p>
+<h3>
+<a id="到指定目录下" class="anchor" href="#%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E4%B8%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>到指定目录下</h3>
+
+<pre><code>cd /usr/local/bin/
+</code></pre>
+
+<h3>
+<a id="创建脚本" class="anchor" href="#%E5%88%9B%E5%BB%BA%E8%84%9A%E6%9C%AC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>创建脚本</h3>
+
+<pre><code>vim myVimdiff.sh
+!/bin/sh
+</code></pre>
+
+<h3>
+<a id="指定vimdiff的路径" class="anchor" href="#%E6%8C%87%E5%AE%9Avimdiff%E7%9A%84%E8%B7%AF%E5%BE%84" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>指定vimdiff的路径.</h3>
+
+<pre><code>DIFF="/usr/bin/vimdiff"
+</code></pre>
+
+<h3>
+<a id="svn提供第六和第七个参数作为base和本地最新的文本作为输入" class="anchor" href="#svn%E6%8F%90%E4%BE%9B%E7%AC%AC%E5%85%AD%E5%92%8C%E7%AC%AC%E4%B8%83%E4%B8%AA%E5%8F%82%E6%95%B0%E4%BD%9C%E4%B8%BAbase%E5%92%8C%E6%9C%AC%E5%9C%B0%E6%9C%80%E6%96%B0%E7%9A%84%E6%96%87%E6%9C%AC%E4%BD%9C%E4%B8%BA%E8%BE%93%E5%85%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>svn提供第六和第七个参数作为base和本地最新的文本作为输入</h3>
+
+<pre><code>LEFT=${6}
+RIGHT=${7}
+</code></pre>
+
+<h3>
+<a id="调用vimdiff做比较" class="anchor" href="#%E8%B0%83%E7%94%A8vimdiff%E5%81%9A%E6%AF%94%E8%BE%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>调用vimdiff做比较</h3>
+
+<pre><code>$DIFF $LEFT $RIGHT
+</code></pre>
+
+<h3>
+<a id="运行脚本看看是否有错误" class="anchor" href="#%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E7%9C%8B%E7%9C%8B%E6%98%AF%E5%90%A6%E6%9C%89%E9%94%99%E8%AF%AF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>运行脚本看看是否有错误</h3>
+
+<pre><code>bash myVimdiff.sh
+</code></pre>
+
+<h3>
+<a id="并赋予该文件可执行权限" class="anchor" href="#%E5%B9%B6%E8%B5%8B%E4%BA%88%E8%AF%A5%E6%96%87%E4%BB%B6%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>并赋予该文件可执行权限：</h3>
+
+<pre><code>chmod +x /usr/bin/mydiff
+</code></pre>
 
 <h1>
-<a id="binsh" class="anchor" href="#binsh" aria-hidden="true"><span class="octicon octicon-link"></span></a>!/bin/sh</h1>
+<a id="二配置个人home目录下的svn配置文件subversionconfig定位并配置为如下内容" class="anchor" href="#%E4%BA%8C%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BAhome%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84svn%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6subversionconfig%E5%AE%9A%E4%BD%8D%E5%B9%B6%E9%85%8D%E7%BD%AE%E4%B8%BA%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>二、配置个人home目录下的svn配置文件:~/.subversion/config，定位并配置为如下内容：</h1>
 
-<h1>
-<a id="指定vimdiff的路径" class="anchor" href="#%E6%8C%87%E5%AE%9Avimdiff%E7%9A%84%E8%B7%AF%E5%BE%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>指定vimdiff的路径.</h1>
-
-<p>DIFF="/usr/bin/vimdiff"</p>
-
-<h1>
-<a id="svn提供第六和第七个参数作为base和本地最新的文本作为输入" class="anchor" href="#svn%E6%8F%90%E4%BE%9B%E7%AC%AC%E5%85%AD%E5%92%8C%E7%AC%AC%E4%B8%83%E4%B8%AA%E5%8F%82%E6%95%B0%E4%BD%9C%E4%B8%BAbase%E5%92%8C%E6%9C%AC%E5%9C%B0%E6%9C%80%E6%96%B0%E7%9A%84%E6%96%87%E6%9C%AC%E4%BD%9C%E4%B8%BA%E8%BE%93%E5%85%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>svn提供第六和第七个参数作为base和本地最新的文本作为输入</h1>
-
-<p>LEFT=${6}
-RIGHT=${7}</p>
-
-<h1>
-<a id="调用vimdiff做比较" class="anchor" href="#%E8%B0%83%E7%94%A8vimdiff%E5%81%9A%E6%AF%94%E8%BE%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>调用vimdiff做比较</h1>
-
-<p>$DIFF $LEFT $RIGHT</p>
-
-<p>运行脚本看看是否有错误
-bash myVimdiff.sh</p>
-
-<p>并赋予该文件可执行权限：</p>
-
-<p>chmod +x /usr/bin/mydiff</p>
-
-<p>二、配置个人home目录下的svn配置文件:~/.subversion/config，定位并配置为如下内容：
-[helpers]
+<pre><code>[helpers]
 diff-cmd = /usr/bin/mydiff
-保存退出，即可使用了。</p>
+</code></pre>
+
+<h3>
+<a id="保存退出即可使用了" class="anchor" href="#%E4%BF%9D%E5%AD%98%E9%80%80%E5%87%BA%E5%8D%B3%E5%8F%AF%E4%BD%BF%E7%94%A8%E4%BA%86" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>保存退出，即可使用了。</h3>
 
       <footer class="site-footer">
 
