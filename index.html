@@ -48,7 +48,7 @@
 
 <pre><code>!/bin/sh
 # 指定vimdiff的路径.
-DIFF="/usr/bin/myVimdiff"
+DIFF="/usr/local/bin/myVimdiff"
 
 # svn提供第六和第七个参数作为base和本地最新的文本作为输入
 LEFT=${6}
@@ -66,14 +66,14 @@ $DIFF $LEFT $RIGHT
 <h3>
 <a id="并赋予该文件可执行权限" class="anchor" href="#%E5%B9%B6%E8%B5%8B%E4%BA%88%E8%AF%A5%E6%96%87%E4%BB%B6%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>并赋予该文件可执行权限：</h3>
 
-<pre><code>chmod +x /usr/bin/myVimdiff
+<pre><code>chmod +x /usr/local/bin/myVimdiff
 </code></pre>
 
 <h2>
 <a id="二配置个人home目录下的svn配置文件subversionconfig定位并配置为如下内容" class="anchor" href="#%E4%BA%8C%E9%85%8D%E7%BD%AE%E4%B8%AA%E4%BA%BAhome%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84svn%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6subversionconfig%E5%AE%9A%E4%BD%8D%E5%B9%B6%E9%85%8D%E7%BD%AE%E4%B8%BA%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>二、配置个人home目录下的svn配置文件:~/.subversion/config，定位并配置为如下内容：</h2>
 
 <pre><code>[helpers]
-diff-cmd = /usr/bin/myVimdiff
+diff-cmd = /usr/local/bin/myVimdiff
 </code></pre>
 
 <h3>
